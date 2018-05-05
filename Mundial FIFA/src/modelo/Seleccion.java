@@ -190,8 +190,10 @@ public class Seleccion {
 			else {
 				actual = actual.getSiguiente();
 				while (actual != null && actual != primerJugador) {
-					if (actual.getSiguiente().getNombreJugador().equalsIgnoreCase(nombreJugador)) {
-						encontrado = actual.getSiguiente();	
+					System.out.println(actual.getNombreJugador());
+					if (actual.getNombreJugador().equalsIgnoreCase(nombreJugador)) {
+						
+						encontrado = actual;	
 						actual = actual.getSiguiente();
 						
 					}		

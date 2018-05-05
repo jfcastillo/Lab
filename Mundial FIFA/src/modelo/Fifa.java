@@ -12,6 +12,7 @@ public class Fifa {
 	public Fifa() {
 		
 		primeraSeleccion = new Seleccion("Argentina", 12.58, "a1");
+		numeroSelecciones++;
 	}
 	
 	public int getNumeroSelecciones() {
@@ -32,6 +33,7 @@ public class Fifa {
 		Seleccion selec = new Seleccion(pais, puntos, imagen);		
 		if (primeraSeleccion == null) {			
 			primeraSeleccion = selec;
+			numeroSelecciones++;
 		} else {
 			Seleccion siguiente = primeraSeleccion;
 			while (siguiente.getSiguiente() != null) {
@@ -66,6 +68,7 @@ public class Fifa {
 		else {
 			Seleccion siguiente = primeraSeleccion;
 			while(siguiente != null) {
+				
 				selec.add(siguiente);
 				siguiente = siguiente.getSiguiente();
 			}
@@ -143,6 +146,7 @@ public class Fifa {
 		}
 		else if (sele == primeraSeleccion) {
 			primeraSeleccion = primeraSeleccion.getSiguiente();
+			numeroSelecciones--;
 		}
 		else {
 			Seleccion anterior = buscarSeleccionAnterior(sele);
@@ -151,6 +155,7 @@ public class Fifa {
 				
 			}
 			anterior.desconectarSiguiente();
+			numeroSelecciones--;
 		}
 		
 		
