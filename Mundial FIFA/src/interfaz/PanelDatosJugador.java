@@ -32,7 +32,7 @@ public class PanelDatosJugador extends JPanel {
 	public PanelDatosJugador() {
 		
 		setLayout(new GridLayout(6,2));
-		setSize(new Dimension(300, 500));
+		setSize(new Dimension(300, 600));
 		
 		lblImagen = new JLabel("Imagen");
 		lblNombre = new JLabel("Nombre");

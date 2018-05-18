@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
@@ -22,17 +24,22 @@ public class PanelInfoJugador extends JPanel{
 	private PanelDatosJugador pDatosJugador;
 	private PanelOpcionesInformacion pOpcionesInfo;
 	private VentanaPrincipal vPrincipal;
+	private JLabel lblImagen;
 
 	public PanelInfoJugador(VentanaPrincipal vPrin) {
 		vPrincipal = vPrin;
 		setLayout(new BorderLayout());
+		lblImagen = new JLabel();
+		lblImagen.setIcon(new ImageIcon("img/transparente.png"));
 		pDatosJugador = new PanelDatosJugador();
 		pOpcionesInfo = new PanelOpcionesInformacion(this);
+		add(lblImagen, BorderLayout.NORTH);
 		add(pDatosJugador,BorderLayout.CENTER);
 		add(pOpcionesInfo,BorderLayout.SOUTH);
 		
 	}
 	public void llenarDatosJugador(String imagen, String nombre, String posicion, double puntaje, String fechaNacimiento, double altura) {
+		lblImagen.setIcon(new ImageIcon(imagen));
 		pDatosJugador.llenarDatos(imagen, nombre, posicion, puntaje, fechaNacimiento, altura);
 	}
 	public void cambiarTituloPDatos(String nombre) {

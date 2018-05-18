@@ -235,7 +235,7 @@ public class Seleccion {
 		Jugador actual = primerJugador;
 		boolean salir = false;
 		if (actual.getNombreJugador().equals(nombre)) {
-			anterior = actual;
+			anterior = ultimoJugador;
 			
 		}
 		else {
@@ -256,22 +256,19 @@ public class Seleccion {
 		Jugador siguiente = null;
 		Jugador actual = primerJugador;
 		boolean salir = false;
-		if (actual.getNombreJugador().equals(nombre)) {
-			siguiente = actual;
+		if (actual.getNombreJugador().equals(nombre) && actual.getSiguiente()!=null) {
+			siguiente = actual.getSiguiente();
 			
 		}
 		else {
 			while (actual.getSiguiente() != null && !salir) {
-				if (actual.getSiguiente().getNombreJugador().equals(nombre)) {
+				actual = actual.getSiguiente();
+				if (actual.getNombreJugador().equals(nombre)) {
 					siguiente = actual.getSiguiente();					
 					salir = true;
-				}		
-				else {
-					actual = actual.getSiguiente();
-				}
-			}
-			
-		}
+				}	
+			}		
+		}		
 		return siguiente;
 	}
 	

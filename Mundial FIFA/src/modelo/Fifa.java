@@ -10,8 +10,20 @@ public class Fifa {
 		
 	}
 	public Fifa() {
+		Seleccion argentina = new Seleccion("Argentina", 1253.61, "img/argentina.png"); 
+		Seleccion colombia = new Seleccion("Colombia", 988.57, "img/colombia.png"); 
+		Seleccion brasil = new Seleccion("Brasil", 1384.24, "img/brasil.jpg"); 
 		
-		primeraSeleccion = new Seleccion("Argentina", 12.58, "a1");
+		primeraSeleccion = argentina;
+		argentina.agregarJugador("Lionel Messi", "Delantero", 223.4, "24/06/1987", 1.70, "img/messi.jpg");
+		argentina.agregarJugador("Sergio Aguero", "Delantero", 223.4, "02/06/1988", 1.73, "img/aguero.jpg");
+		argentina.agregarJugador("Gonzalo Higuain", "Delantero", 223.4, "10/12/1987", 1.86, "img/higuain.jpg");
+		agregarSeleccion(colombia);
+		colombia.agregarJugador("James Rodriguez", "Mediocampista", 185.9, "05/07/1990", 1.75, "img/james.jpg");
+		colombia.agregarJugador("Radamel Falcao", "Delantero", 188.9, "05/07/1988", 1.85, "img/falcao.jpg");
+		colombia.agregarJugador("Juan Cuadrado", "Mediocampista", 170.9, "08/07/1989", 1.73, "img/cuadrado.jpg");
+		
+		agregarSeleccion(brasil);
 		numeroSelecciones++;
 	}
 	
@@ -29,6 +41,20 @@ public class Fifa {
 	}
 
 	
+	public void agregarSeleccion(Seleccion selec) {
+			
+		if (primeraSeleccion == null) {			
+			primeraSeleccion = selec;
+			numeroSelecciones++;
+		} else {
+			Seleccion siguiente = primeraSeleccion;
+			while (siguiente.getSiguiente() != null) {
+				siguiente = siguiente.getSiguiente();				
+			}			
+			siguiente.setSiguiente(selec);
+			numeroSelecciones++;
+		}
+	}
 	public void agregarSeleccion(String pais, double puntos, String imagen) {
 		Seleccion selec = new Seleccion(pais, puntos, imagen);		
 		if (primeraSeleccion == null) {			
